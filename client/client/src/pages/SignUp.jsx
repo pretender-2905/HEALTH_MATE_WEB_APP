@@ -9,7 +9,7 @@ const COLORS = {
   darkGray: "#333333",
 };
 
-function Login() {
+function SignUp() {
     const navigate = useNavigate()
   return (
     <div
@@ -46,7 +46,7 @@ function Login() {
             fontWeight: "700",
           }}
         >
-          SIGN IN
+          SIGN UP
         </h1>
 
         <p
@@ -57,7 +57,7 @@ function Login() {
             fontSize: "clamp(14px, 4vw, 15px)",
           }}
         >
-          Sign in to continue to your account
+          Sign Up to continue to your account
         </p>
 
         {/* Email Input */}
@@ -148,7 +148,7 @@ function Login() {
           onMouseOver={(e) => (e.target.style.background = "#97E0C3")}
           onMouseOut={(e) => (e.target.style.background = COLORS.primaryMint)}
         >
-          Sign In
+          Sign up
         </button>
 
         {/* Google Sign In */}
@@ -183,7 +183,7 @@ function Login() {
               display: "inline-block",
             }}
           />
-          Sign in with Google
+          Sign up with Google
         </button>
 
         {/* Footer */}
@@ -195,16 +195,16 @@ function Login() {
             fontSize: "clamp(14px, 4vw, 15px)",
           }}
         >
-          Don't have an account?{" "}
+         Already Have An Account? {" "}
           <span
-          onClick={()=> navigate("/signup")}
+          onClick={()=> navigate("/login")}
             style={{
               color: COLORS.forestGreen,
               fontWeight: "700",
               cursor: "pointer",
             }}
           >
-            Sign Up
+            Sign in
           </span>
         </div>
       </div>
@@ -212,4 +212,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default SignUp;
