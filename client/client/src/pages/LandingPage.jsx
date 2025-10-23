@@ -25,6 +25,8 @@ import {
   PlayArrow,
 } from "@mui/icons-material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Navigate, useNavigate } from "react-router-dom";
+import { blue } from "@mui/material/colors";
 
 const theme = createTheme({
   palette: {
@@ -59,7 +61,7 @@ function ElevationScroll(props) {
 const LandingPage = () => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const handleDrawerToggle = () => setMobileOpen(!mobileOpen);
-
+  const navigate = useNavigate()
   const drawer = (
     <Box sx={{ width: { xs: "100%", sm: 280 }, p: 3 }}>
       <Typography variant="h5" sx={{ mb: 2, color: "primary.main" }}>
@@ -72,6 +74,7 @@ const LandingPage = () => {
           </ListItem>
         ))}
         <Button
+       onClick={()=> navigate("/login")}
           variant="contained"
           fullWidth
           sx={{
@@ -80,7 +83,7 @@ const LandingPage = () => {
             "&:hover": { backgroundColor: "#1B5E20" },
           }}
         >
-          Get Started
+          LOGIN
         </Button>
       </List>
     </Box>
@@ -97,6 +100,13 @@ const LandingPage = () => {
               px: { xs: 2, sm: 3, md: 8 },
             }}
           >
+             {/* <img
+      src="https://static.vecteezy.com/system/resources/previews/013/310/985/non_2x/the-green-health-icon-with-a-gear-wheel-in-the-middle-has-a-plus-sign-as-a-symbol-of-health-editable-health-symbols-free-vector.jpg"
+      alt="HEALTHMATE logo"
+      style={{
+        height: 50,
+      }}
+    /> */}
             <Typography
               variant="h5"
               sx={{ fontWeight: "bold", color: "primary.main" }}
@@ -112,13 +122,14 @@ const LandingPage = () => {
                 </Button>
               ))}
               <Button
+              onClick={()=> navigate("/login")}
                 variant="contained"
                 sx={{
                   backgroundColor: "primary.main",
                   "&:hover": { backgroundColor: "#1B5E20" },
                 }}
               >
-                Get Started
+                LOGIN
               </Button>
             </Box>
 
@@ -178,6 +189,7 @@ const LandingPage = () => {
             }}
           >
             <Button
+            onClick={()=> navigate("/login")}
               variant="contained"
               size="large"
               endIcon={<ArrowForward />}
@@ -187,7 +199,7 @@ const LandingPage = () => {
                 width: { xs: "90%", sm: "auto" },
               }}
             >
-              Start Free Trial
+              Sign In To Start
             </Button>
             <Button
               variant="outlined"
@@ -466,6 +478,7 @@ const LandingPage = () => {
           Join thousands of users improving their wellness with Health Mate.
         </Typography>
         <Button
+        onClick={()=> navigate("/login")}
           variant="contained"
           size="large"
           sx={{
