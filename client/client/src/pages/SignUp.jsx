@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import { Avatar, Box } from "@mui/material";
 const COLORS = {
   primaryMint: "#A8E6CF",
   forestGreen: "#2E7D32",
@@ -174,15 +174,13 @@ function SignUp() {
           }
           onMouseOut={(e) => (e.target.style.background = "#FFFFFF")}
         >
-          <span
-            style={{
-              width: "clamp(18px, 5vw, 20px)",
-              height: "clamp(18px, 5vw, 20px)",
-              borderRadius: "50%",
-              background: COLORS.primaryMint,
-              display: "inline-block",
-            }}
+          <Avatar
+          src="https://www.svgrepo.com/show/475656/google-color.svg"
+          sx={{width: 24, height: 24}}
           />
+
+          
+          
           Sign up with Google
         </button>
 
