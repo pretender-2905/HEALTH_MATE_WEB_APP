@@ -1,6 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Avatar, Box } from "@mui/material";
+import { useState } from "react";
+import { AppRoutes } from "../constants/constant";
+import axios from "axios";
+
 const COLORS = {
   primaryMint: "#A8E6CF",
   forestGreen: "#2E7D32",
@@ -11,6 +15,29 @@ const COLORS = {
 
 function SignUp() {
     const navigate = useNavigate()
+  const [loading, setLoading] = useState(false)
+    const [formData, setFormData] = useState({
+      email: "",
+      password: ""
+    })
+
+    const  handleChange = (e)=>{
+     setFormData({...formData, [e.target.name]: e.target.value})
+    }
+
+    const handleSignup = async (e)=>{
+     try{
+       setLoading(true)
+       e.preventDefault();
+
+      const res = await axios.post(AppRoutes.signup, formData)
+      console.log("response from frontend of signup", res.data)
+     }catch(err){
+      console.log("response from frontend of signup", err.message)
+      setLoading(false)
+     }
+
+    }
   return (
     <div
       style={{
@@ -23,6 +50,8 @@ function SignUp() {
         padding: "clamp(20px, 5vw, 40px) clamp(10px, 4vw, 20px)",
       }}
     >
+
+      
       <div
         style={{
           width: "100%",
@@ -74,6 +103,9 @@ function SignUp() {
             Email
           </label>
           <input
+            onChange={handleChange}
+            name="email"
+            value={formData.email}
             type="email"
             placeholder="you@example.com"
             style={{
@@ -109,6 +141,9 @@ function SignUp() {
             Password
           </label>
           <input
+          onChange={handleChange}
+          name="password"
+          value={formData.password}
             type="password"
             placeholder="••••••••"
             style={{
@@ -130,8 +165,9 @@ function SignUp() {
           />
         </div>
 
-        {/* Sign In Button */}
+        {/* Sign up Button */}
         <button
+        onClick={handleSignup}
           style={{
             width: "100%",
             padding: "clamp(12px, 4vw, 14px) 16px",
