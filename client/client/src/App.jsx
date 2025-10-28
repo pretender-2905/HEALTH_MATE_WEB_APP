@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from './pages/LandingPage';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
+import Verify from './pages/Verify';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -15,6 +16,7 @@ function App() {
         <Route path='/' element={<LandingPage />}  />
         <Route path='/Login' element={<Login />}  />
         <Route path='/signup' element={<SignUp />}  />
+        <Route path='/verify' element={<Verify />}/>
       </Routes>
  </>
     
