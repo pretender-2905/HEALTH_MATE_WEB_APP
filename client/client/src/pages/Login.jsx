@@ -27,10 +27,11 @@ function Login() {
   }
 
   const handleSignin = async (e)=>{
+    setLoading(true)
     try{
       e.preventDefault()
       
-      setLoading(true)
+      
       const  res = await axios.post(AppRoutes.login , formData)
       const token = res?.data?.data?.token
       Cookies.set("token", token)
@@ -190,7 +191,7 @@ function Login() {
         </button>
 
         {/* Google Sign In */}
-        <button
+        {/* <button
           style={{
             width: "100%",
             padding: "clamp(10px, 4vw, 12px) 16px",
@@ -217,7 +218,7 @@ function Login() {
           sx={{width: 24, height: 24}}
           />
           Sign in with Google
-        </button>
+        </button> */}
 
         {/* Footer */}
         <div

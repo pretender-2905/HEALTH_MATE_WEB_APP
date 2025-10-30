@@ -17,12 +17,13 @@ import {
 } from "@mui/material";
 import {
   Menu as MenuIcon,
-  Favorite,
-  LocalHospital,
-  FitnessCenter,
+  AccountBalance,
+  TrendingUp,
+  Savings,
   Schedule,
   ArrowForward,
   PlayArrow,
+  Receipt,
 } from "@mui/icons-material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Navigate, useNavigate } from "react-router-dom";
@@ -65,7 +66,7 @@ const LandingPage = () => {
   const drawer = (
     <Box sx={{ width: { xs: "100%", sm: 280 }, p: 3 }}>
       <Typography variant="h5" sx={{ mb: 2, color: "primary.main" }}>
-        Health Mate
+        Finance Tracker
       </Typography>
       <List>
         {["Features", "Plans", "Testimonials", "Contact"].map((text) => (
@@ -100,18 +101,11 @@ const LandingPage = () => {
               px: { xs: 2, sm: 3, md: 8 },
             }}
           >
-             {/* <img
-      src="https://static.vecteezy.com/system/resources/previews/013/310/985/non_2x/the-green-health-icon-with-a-gear-wheel-in-the-middle-has-a-plus-sign-as-a-symbol-of-health-editable-health-symbols-free-vector.jpg"
-      alt="HEALTHMATE logo"
-      style={{
-        height: 50,
-      }}
-    /> */}
             <Typography
               variant="h5"
               sx={{ fontWeight: "bold", color: "primary.main" }}
             >
-              FINANCE APP
+              FINANCE TRACKER
             </Typography>
 
             {/* Desktop Nav */}
@@ -163,7 +157,7 @@ const LandingPage = () => {
       >
         <Container maxWidth="md">
           <Typography variant="h2" sx={{ color: "primary.main", mb: 2 }}>
-            Your Personal Finance Tracker
+            Take Control of Your Finances
           </Typography>
           <Typography
             variant="h6"
@@ -174,8 +168,7 @@ const LandingPage = () => {
               px: { xs: 1, sm: 4 },
             }}
           >
-            Track, manage, and improve your health with AI-powered insights and
-            personalized plans.
+            Track, manage, and optimize your finances with AI-powered insights and personalized budgeting plans.
           </Typography>
 
           <Box
@@ -228,17 +221,17 @@ const LandingPage = () => {
     color: "primary.main",
     mx: "auto",
     width: { xs: "90%", md: "80%" },
-    overflow: "hidden", // ✅ ensures rounded corners apply to the image
+    overflow: "hidden",
   }}
 >
   <Box
     component="img"
-    src="https://img.freepik.com/free-vector/finance-financial-performance-concept-illustration_53876-40450.jpg" // 🖼️ your image path
-    alt="Health Tracking Dashboard Preview"
+    src="https://img.freepik.com/free-vector/finance-financial-performance-concept-illustration_53876-40450.jpg"
+    alt="Finance Dashboard Preview"
     sx={{
       width: "100%",
       height: "100%",
-      objectFit: "cover", // or "contain" if you don’t want cropping
+      objectFit: "cover",
     }}
   />
 </Box>
@@ -257,7 +250,7 @@ const LandingPage = () => {
       fontWeight: 700,
     }}
   >
-    Why Choose Health Mate?
+    Why Choose Finance Tracker?
   </Typography>
 
   <Grid
@@ -268,39 +261,39 @@ const LandingPage = () => {
   >
     {[
       { 
-        icon: Favorite, 
-        title: "Health Tracking", 
-        text: "Monitor your vital signs, symptoms, and health metrics in one place.",
+        icon: Receipt, 
+        title: "Expense Tracking", 
+        text: "Monitor your daily spending and categorize expenses automatically.",
         gradient: "linear-gradient(135deg, #A8E6CF 0%, #88D4AB 100%)"
       },
       { 
-        icon: LocalHospital, 
+        icon: TrendingUp, 
         title: "AI Insights", 
-        text: "Get personalized health recommendations powered by artificial intelligence.",
+        text: "Get personalized financial recommendations powered by artificial intelligence.",
         gradient: "linear-gradient(135deg, #A8E6CF 0%, #77C9D4 100%)"
       },
       { 
-        icon: FitnessCenter, 
-        title: "Fitness Plans", 
-        text: "Custom workout routines and exercise plans tailored to your goals.",
+        icon: AccountBalance, 
+        title: "Budget Planning", 
+        text: "Create custom budgets and financial plans tailored to your goals.",
         gradient: "linear-gradient(135deg, #A8E6CF 0%, #98D4A9 100%)"
       },
       { 
         icon: Schedule, 
-        title: "Progress Tracking", 
-        text: "Visualize your health journey with detailed progress reports and analytics.",
+        title: "Bill Reminders", 
+        text: "Never miss a payment with smart bill reminders and due date alerts.",
         gradient: "linear-gradient(135deg, #A8E6CF 0%, #88C9D4 100%)"
       },
       { 
-        icon: ArrowForward, 
-        title: "Goal Setting", 
-        text: "Set and track realistic health and fitness goals to stay motivated.",
+        icon: Savings, 
+        title: "Savings Goals", 
+        text: "Set and track realistic savings goals to build your financial future.",
         gradient: "linear-gradient(135deg, #A8E6CF 0%, #A8D4CF 100%)"
       },
       { 
         icon: PlayArrow, 
-        title: "Guided Workouts", 
-        text: "Follow expert-designed, interactive workouts directly in the app.",
+        title: "Investment Tracking", 
+        text: "Monitor your investments and portfolio performance in real-time.",
         gradient: "linear-gradient(135deg, #A8E6CF 0%, #B8E6CF 100%)"
       },
     ].map((feature, index) => {
@@ -472,10 +465,10 @@ const LandingPage = () => {
         }}
       >
         <Typography variant="h4" gutterBottom sx={{ color: "primary.main", fontSize: { xs: "1.5rem", md: "2rem" } }}>
-          Ready to Transform Your Health?
+          Ready to Transform Your Finances?
         </Typography>
         <Typography variant="h6" color="text.primary" paragraph sx={{ fontSize: { xs: "1rem", md: "1.25rem" } }}>
-          Join thousands of users improving their wellness with Health Mate.
+          Join thousands of users achieving financial freedom with Finance Tracker.
         </Typography>
         <Button
         onClick={()=> navigate("/login")}
@@ -495,13 +488,13 @@ const LandingPage = () => {
       <Box sx={{ py: 4, backgroundColor: "primary.main", color: "white", textAlign: "center" }}>
         <Container maxWidth="lg">
           <Typography variant="h6" fontSize={{ xs: "1rem", sm: "1.25rem" }}>
-            Health Mate
+            Finance Tracker
           </Typography>
           <Typography variant="body2" fontSize={{ xs: "0.8rem", sm: "0.9rem" }}>
-            Your trusted companion for a healthier life.
+            Your trusted companion for financial success.
           </Typography>
           <Typography variant="body2" sx={{ mt: 2 }} fontSize={{ xs: "0.75rem", sm: "0.85rem" }}>
-            © 2025 Health Mate. All rights reserved.
+            © 2025 Finance Tracker. All rights reserved.
           </Typography>
         </Container>
       </Box>

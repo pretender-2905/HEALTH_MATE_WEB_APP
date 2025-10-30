@@ -26,12 +26,14 @@ function SignUp() {
     }
 
     const handleSignup = async (e)=>{
-     try{
        setLoading(true)
+     try{
+      
        e.preventDefault();
 
       const res = await axios.post(AppRoutes.signup, formData)
       console.log("response from frontend of signup", res.data)
+      setLoading(false)
       navigate("/verify")
      }catch(err){
       console.log("response from frontend of signup", err.message)
@@ -168,6 +170,7 @@ function SignUp() {
 
         {/* Sign up Button */}
         <button
+        disabled={loading}
         onClick={handleSignup}
           style={{
             width: "100%",
@@ -188,8 +191,8 @@ function SignUp() {
           Sign up
         </button>
 
-        {/* Google Sign In */}
-        <button
+        {/* Google Sign up */}
+        {/* <button
           style={{
             width: "100%",
             padding: "clamp(10px, 4vw, 12px) 16px",
@@ -219,7 +222,7 @@ function SignUp() {
           
           
           Sign up with Google
-        </button>
+        </button> */}
 
         {/* Footer */}
         <div

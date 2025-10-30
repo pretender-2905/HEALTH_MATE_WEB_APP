@@ -1,12 +1,13 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { AppRoutes } from '../constants/constant';
+import { useNavigate } from 'react-router-dom';
 
 const Verify = () => {
   const [code, setCode] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
-
+const navigate = useNavigate()
   const handleSubmit = async (e) => {
   try{
       e.preventDefault();
@@ -14,6 +15,7 @@ const Verify = () => {
     const res = await axios.post(AppRoutes.verify,{ verificationCode: code})
     console.log("res from verify page=> ", res.data)
     setError('');
+    navigate("/login")
     
   }catch(error){
     console.log("erorr from catch in from verify page", error.message)
