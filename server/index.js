@@ -9,7 +9,10 @@ dotenv.config()
 const PORT =  4000 
 
 const app = express()
-app.use(cors()) 
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://bright-sawine-545e0d.netlify.app/'],
+  credentials: true
+}));
 app.use(express.json())
 
 app.get("/", (req,res)=>{

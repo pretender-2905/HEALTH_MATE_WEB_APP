@@ -34,7 +34,7 @@ function SignUp() {
       const res = await axios.post(AppRoutes.signup, formData)
       console.log("response from frontend of signup", res.data)
       setLoading(false)
-      navigate("/verify")
+      navigate("/add")
      }catch(err){
       console.log("response from frontend of signup", err.message)
       setLoading(false)
