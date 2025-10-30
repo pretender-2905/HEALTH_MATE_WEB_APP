@@ -9,10 +9,17 @@ dotenv.config()
 const PORT =  4000 
 
 const app = express()
+
 app.use(cors({
-  origin: ['http://localhost:5173', 'https://bright-sawine-545e0d.netlify.app/'],
-  credentials: true
+  origin: [
+    'http://localhost:5173', 
+    'https://extraordinary-sunburst-dfe2f0.netlify.app'
+  ],
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
 app.use(express.json())
 
 app.get("/", (req,res)=>{
@@ -23,14 +30,9 @@ mongoose.connect(process.env.MONGODBURI)
 .then(()=> console.log("Mongo Db is connected Successfully!"))
 .catch((error)=> console.log("Error while connecting MONGO DB", error.message))
 
-
 app.use("/user", userRoutes)
 app.use("/transaction", transactionRoutes)
+
 app.listen(PORT, ()=> {
     console.log(`Server is Running on http://localhost:${PORT}`)
 })
-
-
-
-
-
