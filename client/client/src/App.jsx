@@ -28,6 +28,7 @@ console.log("token=> ", Cookies.get('token'))
         <Route path='/signup' element={<SignUp />}  />
         <Route path='/verify' element={<Verify />}/>
         <Route path='/add' element={<Income />} />
+        <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
  </>
     
