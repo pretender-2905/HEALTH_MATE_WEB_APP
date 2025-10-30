@@ -110,3 +110,17 @@ router.post("/login", async (req, res) => {
 
 
 
+// getting user data login data!!!
+router.get("/myInfo", authenticateUser, async (req,res)=>{
+    try{
+        const user = await User.findOne({_id: req.user._id})
+    sendResponse(res, 200, user, false, "User data fetched successfully")
+    }catch(error){
+        console.log("error from myInfo api in user file=> ", error)
+        sendResponse(res, 500, null, true, "Something went wrong while getting user info!")
+    }
+
+})
+
+
+

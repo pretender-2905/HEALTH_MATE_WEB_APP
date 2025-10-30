@@ -111,7 +111,7 @@ const LandingPage = () => {
               variant="h5"
               sx={{ fontWeight: "bold", color: "primary.main" }}
             >
-              Health Mate
+              FINANCE APP
             </Typography>
 
             {/* Desktop Nav */}
@@ -163,7 +163,7 @@ const LandingPage = () => {
       >
         <Container maxWidth="md">
           <Typography variant="h2" sx={{ color: "primary.main", mb: 2 }}>
-            Your Personal Health Companion
+            Your Personal Finance Tracker
           </Typography>
           <Typography
             variant="h6"
@@ -233,7 +233,7 @@ const LandingPage = () => {
 >
   <Box
     component="img"
-    src="https://ebv2e3r5onu.exactdn.com/wp-content/uploads/2021/12/Blood-Pressure-Numbers_Newsroom-1024x576.jpg?strip=all&lossy=1&ssl=1" // 🖼️ your image path
+    src="https://img.freepik.com/free-vector/finance-financial-performance-concept-illustration_53876-40450.jpg" // 🖼️ your image path
     alt="Health Tracking Dashboard Preview"
     sx={{
       width: "100%",

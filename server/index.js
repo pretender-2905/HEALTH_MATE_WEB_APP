@@ -4,6 +4,7 @@ import dotenv from 'dotenv'
 import cors from 'cors'
 import sendResponse from './helpers/sendResponse.js'
 import userRoutes from './routers/user.js'
+import transactionRoutes from './routers/transaction.js'
 dotenv.config()
 const PORT =  4000 
 
@@ -21,6 +22,7 @@ mongoose.connect(process.env.MONGODBURI)
 
 
 app.use("/user", userRoutes)
+app.use("/transaction", transactionRoutes)
 app.listen(PORT, ()=> {
     console.log(`Server is Running on http://localhost:${PORT}`)
 })

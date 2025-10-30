@@ -1,6 +1,10 @@
 import { Avatar } from "@mui/material";
 import React from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { AppRoutes } from "../constants/constant";
+import axios from "axios";
+import Cookies from 'js-cookie';
 
 const COLORS = {
   primaryMint: "#A8E6CF",
@@ -11,6 +15,32 @@ const COLORS = {
 };
 
 function Login() {
+  const [formData, setFormData] = useState({
+    email:'',
+    password: ''
+  })
+  const [loading, setLoading] = useState(true)
+
+
+  const handleChange = (e)=>{
+    setFormData({...formData, [e.target.name]: e.target.value})
+  }
+
+  const handleSignin = async (e)=>{
+    try{
+      e.preventDefault()
+      
+      setLoading(true)
+      const  res = await axios.post(AppRoutes.login , formData)
+      const token = res?.data?.data?.token
+      Cookies.set("token", token)
+      console.log("response from frontend of signup", res.data)
+      
+      navigate("/add")
+    }catch(error){
+      console.log("error from login frontend handle change=> ", error.message)
+    }
+  }
     const navigate = useNavigate()
   return (
     <div
@@ -75,7 +105,10 @@ function Login() {
             Email
           </label>
           <input
+          name="email"
             type="email"
+            onChange={handleChange}
+            value={formData.email}
             placeholder="you@example.com"
             style={{
               width: "100%",
@@ -110,6 +143,9 @@ function Login() {
             Password
           </label>
           <input
+          name="password"
+            onChange={handleChange}
+            value={formData.password}
             type="password"
             placeholder="••••••••"
             style={{
@@ -133,6 +169,7 @@ function Login() {
 
         {/* Sign In Button */}
         <button
+        onClick={handleSignin}
           style={{
             width: "100%",
             padding: "clamp(12px, 4vw, 14px) 16px",
