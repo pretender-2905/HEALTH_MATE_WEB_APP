@@ -10,13 +10,13 @@ dotenv.config()
 const router = express.Router();
 
 // email sender
-const transporter = nodemailer.createTransport({
-  service: "gmail",
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
-  },
-});
+// const transporter = nodemailer.createTransport({
+//   service: "gmail",
+//   auth: {
+//     user: process.env.EMAIL_USER,
+//     pass: process.env.EMAIL_PASS,
+//   },
+// });
 
 // signup
 router.post("/signup", async (req, res) => {
@@ -52,12 +52,12 @@ router.post("/signup", async (req, res) => {
     await user.save();
 
     // Send verification code
-    await transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: email,
-      subject: "Your HealthMate verification code",
-      text: `Your HealthMate verification code is ${verificationCode}`,
-    });
+    // await transporter.sendMail({
+    //   from: process.env.EMAIL_USER,
+    //   to: email,
+    //   subject: "Your HealthMate verification code",
+    //   text: `Your HealthMate verification code is ${verificationCode}`,
+    // });
 
     sendResponse(res, 201, user, false, "Verification code sent to your email");
   } catch (error) {
