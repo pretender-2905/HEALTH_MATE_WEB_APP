@@ -1,6 +1,6 @@
 
-// const BASE_URL = "http://localhost:4000"
-const BASE_URL = "https://healthmatewebapp-production.up.railway.app"
+const BASE_URL = "http://localhost:4000"
+// const BASE_URL = "https://healthmatewebapp-production.up.railway.app"
 
 export const AppRoutes = {
     signup: `${BASE_URL}/user/signup`,
